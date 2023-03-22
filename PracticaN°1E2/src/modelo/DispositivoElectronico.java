@@ -5,11 +5,11 @@ import Excepciones.SaldoException;
 public class DispositivoElectronico {
 
 	private Pedido miPedido;
-	private float importeAbonar;
+	private Double importeAbonar;
 
 	public DispositivoElectronico() {
 		super();
-		this.importeAbonar = 0;
+		this.importeAbonar = 0.0;
 	}
 
 	public void tomarPedido(Pedido nuevoPedido) {
@@ -22,11 +22,11 @@ public class DispositivoElectronico {
 		tarjetaDada.efectuarPago(importeAbonar);
 	}
 
-	private float sumarPropina(float totalPedido, int propina) {
-		return ((propina * totalPedido) / 100);
+	private Double sumarPropina(Double totalPedido, int propina) {
+		return (((propina * totalPedido) / 100) + (totalPedido));
 	}
 
-	public float devolverImporteAPagar() {
+	public Double devolverImporteAPagar() {
 		return (this.importeAbonar);
 	}
 

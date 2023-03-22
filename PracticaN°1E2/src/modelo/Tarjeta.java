@@ -4,20 +4,20 @@ import Excepciones.SaldoException;
 
 public abstract class Tarjeta {
 
-	protected float saldo;
+	protected Double saldo;
 	protected int saldoMin;
 	protected int nroTarjeta;
 
-	public Tarjeta(int saldoMin, int saldo, int nroTarjeta) {
+	public Tarjeta(int saldoMin, Double saldo, int nroTarjeta) {
 
 		this.saldo = saldo;
 		this.saldoMin = saldoMin;
 		this.nroTarjeta = nroTarjeta;
 	}
 
-	public abstract float realizarDescuentos(Pedido unPedido);
+	public abstract Double realizarDescuentos(Pedido unPedido);
 
-	protected void efectuarPago(float precioFinal) throws SaldoException {
+	protected void efectuarPago(Double precioFinal) throws SaldoException {
 
 		if (this.saldo - precioFinal < this.saldoMin) {
 			this.saldo = this.saldo - precioFinal;
@@ -28,7 +28,7 @@ public abstract class Tarjeta {
 		}
 	}
 
-	protected float descuento(float precio, int descuento) {
+	protected Double descuento(Double precio, int descuento) {
 		return (precio - ((descuento * precio) / 100));
 	}
 

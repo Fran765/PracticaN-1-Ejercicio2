@@ -12,23 +12,23 @@ public class Pedido {
 		this.plato = plato;
 	}
 
-	public float precioTotalBebidas() {
-		float total = 0;
+	public Double precioTotalBebidas() {
+		Double total = 0.0;
 		for (Bebidas unaBebida : bebida) {
 			total = total + unaBebida.devolverPrecio();
 		}
 		return total;
 	}
 
-	public float precioTotalPlatos() {
-		float total = 0;
+	public Double precioTotalPlatos() {
+		Double total = 0.0;
 		for (Platos unPlato : plato) {
 			total = total + unPlato.devolverPrecio();
 		}
 		return total;
 	}
 
-	public float precioTotal() {
+	public Double precioTotal() {
 		return (this.precioTotalPlatos() + this.precioTotalBebidas());
 	}
 
