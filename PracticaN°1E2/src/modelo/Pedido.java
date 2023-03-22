@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -7,9 +8,17 @@ public class Pedido {
 	private List<Bebidas> bebida;
 	private List<Platos> plato;
 
-	public Pedido(List<Bebidas> bebida, List<Platos> plato) {
-		this.bebida = bebida;
-		this.plato = plato;
+	public Pedido() {
+		this.bebida = new ArrayList<Bebidas>();
+		this.plato = new ArrayList<Platos>();
+	}
+
+	public void agregarPlato(Platos unPlato) {
+		this.plato.add(unPlato);
+	}
+
+	public void agregarBebida(Bebidas unaBebida) {
+		this.bebida.add(unaBebida);
 	}
 
 	public Double precioTotalBebidas() {

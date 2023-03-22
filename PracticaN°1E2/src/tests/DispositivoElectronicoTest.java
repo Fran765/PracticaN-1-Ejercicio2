@@ -2,9 +2,6 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import Excepciones.SaldoException;
@@ -106,8 +103,6 @@ class DispositivoElectronicoTest {
 
 
 	private Pedido instanciarPedido() {
-		List<Bebidas> bebidas = new ArrayList<Bebidas>();
-		List<Platos> platos = new ArrayList<Platos>();
 
 		Platos plato1 = new Platos("Bondiola", 2500);
 		Platos plato2 = new Platos("Ravioles", 2000);
@@ -117,15 +112,15 @@ class DispositivoElectronicoTest {
 		Bebidas bebida2 = new Bebidas("Agua", 150);
 		Bebidas bebida3 = new Bebidas("Vino", 500);
 
-		bebidas.add(bebida1);
-		bebidas.add(bebida2);
-		bebidas.add(bebida3);
+		Pedido miPedido = new Pedido();
 
-		platos.add(plato1);
-		platos.add(plato2);
-		platos.add(plato3);
+		miPedido.agregarPlato(plato1);
+		miPedido.agregarPlato(plato2);
+		miPedido.agregarPlato(plato3);
 
-		Pedido miPedido = new Pedido(bebidas, platos);
+		miPedido.agregarBebida(bebida1);
+		miPedido.agregarBebida(bebida2);
+		miPedido.agregarBebida(bebida3);
 
 		return miPedido;
 	}
